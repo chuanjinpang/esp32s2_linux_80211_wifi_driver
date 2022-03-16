@@ -1,9 +1,9 @@
 # esp32s2_linux_80211_wifi_driver
 my toy diy poroject for esp3s2 linux 802.11 wifi driver, include linux host driver & esp32s2 firmware 
 
-开源软件怎么说了？公用品，方便了用户，但是怎么维护开发者的权益是个问题？问题不因回避而消失。
+Q:开源软件怎么说了？公用品，方便了用户，但是怎么维护开发者的权益是个问题？问题不因回避而消失。
 
-
+A: 持续更新，像科技树一种，不停的向前走。出第一版本，第二版本，...N版本。
 
 ---
 
@@ -35,17 +35,32 @@ insmod xfz_usb_wifi.ko
 
 esp32s2的固件源码，计划分3次发布完。
 
-阶段1：先发一个学习版本，不影响参考学习。性能上可以看720P在线视频，~2.5Mbps的速度。对usb error recovery代码只提供.o二进制。如果esp32s2 usb没这问题，根本就不存在这段代码。
+阶段1：先发一个学习版本，不影响参考学习。性能上可以看720P在线视频，~2.5Mbps的速度。
 
-阶段2 ：高性能版本, 性能上大约可以看1080P在线视频，相比前一版本大约提高1Mbps, 即~3.5Mbps,峰值5+Mbps。
+（20220/3/15 已经发布）
 
-阶段3：发布usb error recovery代码。
-
-毕竟乐鑫也没有开源wifi部分的源码，USB部分的资料也没放出来。
-
-这就是开发者对代码有一点掌控力的福利，2022年内发布完。
+阶段2 ：高性能版本, 性能上大约可以看1080P在线视频，相比前一版本大约提高1Mbps, 即~3.5Mbps,峰值5+Mbps。（不确定时间，有空再搞吧！）
 
 
+
+## 3.esp32s2固件编译
+
+请使用以下命令：
+
+git clone -b esp32_usb_80211_wifi git@github.com:chuanjinpang/esp-idf-usb-80211-wifi.git
+
+git submodule init
+git submodule update
+
+cd esp32s2_usb_80211_wifi 
+
+idf.py build 生成固件
+
+已经编译的出固件在esp32s2_linux_80211_wifi_driver\test_firmware。
+
+注意点：
+
+1. tinyusb若有更新，请拉取 git@github.com:chuanjinpang/tinyusb.git 里面的分支origin/pcj_dev。
 
 ## 3.已知问题
 
